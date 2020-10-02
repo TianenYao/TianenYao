@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://tianenyao-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio website for Tianen Yao"
+title = "Tianen Yao's Portfolio website"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -19,8 +19,8 @@ disqusShortname = ""
   # CSS class.
 
   # Provide your metadata here.
-  name = "Porfolio website for Tianen Yao"
-  description = "A student of LBS MFA2021 pursuing a career in finance"
+  name = "Tianen Yao's Portfolio website"
+  description = "A member of LBS MFA2021 pursuing a career in finance"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -38,17 +38,17 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Tianen Yao"
-    subtitle = "Learning R"
+    subtitle = "MFA 2021"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
 
     [[params.navigation.links]]
       name = "Home"
-      url = "#"
+      url = "https://tianenyao-portfolio.netlify.app/"
 
     [[params.navigation.links]]
-      name = "Blogs"
+      name = "Blog"
       url = "blogs"
 
     [[params.navigation.links]]
@@ -68,22 +68,22 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Get Started"
+      name = "Learn about me!"
       url = "blogs"
 
     # Button Style 2
     [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+      name = "My Linkedin"
+      url = "www.linkedin.com/in/tianen-yao"
 
 
   # Banner section
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Forty"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "Get Started"
+    title = "Nice to meet you! My name is Tianen Yao."
+    subtitle = "I'm a member of LBS MFA2021 pursuing a career in finance"
+    buttonText = "Learn about me!"
 
 
   # Tiles Section
@@ -172,47 +172,47 @@ disqusShortname = ""
     # by copying the corresponding map with frontmatter code.
     [[params.contact.email]]
     title = "Email"
-    email = "example@domain.com"
+    email = "yaote98@foxmail.com"
 
     [[params.contact.phone]]
     title = "Phone"
-    phone = "(000) 000-0000 x1234"
+    phone = "(0086) 18964905772"
 
     [[params.contact.address]]
     title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+    street = "Changli East Road"
+    city = "Shanghai"
+    country = "China"
 
   # Footer section
   [params.footer]
     enable = true
-    copyright = "Company Name"
+    copyright = "Tianen Yao"
 
     # Uses font awesome icons
     [[params.footer.social]]
       icon = "fa-twitter"
-      url= "https://www.twitter.com"
+      url= "https://twitter.com/thu_uoiea"
       label = "Twitter"
 
     [[params.footer.social]]
       icon = "fa-facebook"
-      url= "https://www.facebook.com"
+      url= "https://www.facebook.com/tianen.yao.92"
       label = "Facebook"
 
-    [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+    #[[params.footer.social]]
+    #  icon = "fa-instagram"
+    #  url= "https://www.instagram.com"
+    #  label = "Instagram"
     
     [[params.footer.social]]
       icon = "fa-github"
-      url= "https://www.github.com"
+      url= "https://github.com/TianenYao"
       label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "www.linkedin.com/in/tianen-yao"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
