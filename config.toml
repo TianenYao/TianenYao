@@ -74,7 +74,7 @@ disqusShortname = ""
     # Button Style 2
     [[params.navigation.button2]]
       name = "My Linkedin"
-      url = "www.linkedin.com/in/tianen-yao"
+      url = "https://www.linkedin.com/in/tianen-yao/"
 
 
   # Banner section
@@ -212,7 +212,7 @@ disqusShortname = ""
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "www.linkedin.com/in/tianen-yao"
+      url= "https://www.linkedin.com/in/tianen-yao/"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
