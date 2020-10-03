@@ -1,9 +1,9 @@
 ---
-date: "2017-10-31T22:27:21-05:00"
+date: "2020-10-3"
 draft: false
-image: pic02.jpg
+image: banner.jpg
 slug: blogs
-title: Lifestyle
+title: List of my blogs.
 ---
 
-My blogs about technology and lifestyle.
+My life, my journey, my passion, my blogs.
