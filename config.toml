@@ -93,7 +93,7 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "Personal Introduction"
-      subtitle = "Ipsum Dolor Sit Amet"
+      subtitle = "My personal journey"
       image = "person.jpg"
       url = "blogs/aliquam"
 
