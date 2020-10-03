@@ -11,20 +11,6 @@ slug: blog6
 title: Hi! My name is Tianen Yao, this is my story.
 ---
 
----
-title: 'Pre-programme Assignment 1'
-author: "Tianen Yao"
-date: "2020/9/3"
-output:
-  html_document:
-    highlight: zenburn
-    theme: flatly
-    toc: yes
-    toc_float: yes
-  word_document:
-    toc: yes
----
-
 
 ```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
