@@ -69,9 +69,7 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog6/</guid>
-      <description>_site
-Please delete all the intro tet I wrote from line 22 to line 69 and start writing your short biography after this blockquote.
-The personal biography of Tianen YaoNice to meet you! My name is Tianen Yao. I was born and grew up in Shanghai. I then went to Beijing for my undergraduate study in Tsinghua University. I majored in economics and finance in Tsinghua .</description>
+      <description>The personal biography of Tianen YaoNice to meet you! My name is Tianen Yao. I was born and grew up in Shanghai. I then went to Beijing for my undergraduate study in Tsinghua University. I majored in economics and finance in Tsinghua . I am in the Class of 2021 of the London Business School Masters in Financial Analysis program (MFA2021) in partnership with Tsinghua University School of Economics and Management.</description>
     </item>
     
   </channel>
