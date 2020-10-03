@@ -10,17 +10,7 @@ keywords: "Personal Introduction"
 slug: blog6
 title: Hi! My name is Tianen Yao, this is my story.
 ---
-_site
 
-```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
-library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
-library(gapminder)  # gapminder dataset
-library(here)
-```
-
-
-
-> Please delete all the intro tet I wrote from line 22 to line 69 and start writing your short biography after this blockquote.
 
 # The personal biography of **Tianen Yao**
 
