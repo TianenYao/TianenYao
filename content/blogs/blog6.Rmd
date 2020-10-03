@@ -1,0 +1,66 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-3"
+description: Test.
+draft: false
+image: banner.jpg
+keywords: "Personal Introduction"
+slug: blog6
+title: Hi! My name is Tianen Yao, this is my story.
+---
+
+---
+title: 'Pre-programme Assignment 1'
+author: "Tianen Yao"
+date: "2020/9/3"
+output:
+  html_document:
+    highlight: zenburn
+    theme: flatly
+    toc: yes
+    toc_float: yes
+  word_document:
+    toc: yes
+---
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(gapminder)  # gapminder dataset
+library(here)
+```
+
+
+
+> Please delete all the intro tet I wrote from line 22 to line 69 and start writing your short biography after this blockquote.
+
+# The personal biography of **Tianen Yao**
+
+Nice to meet you! My name is **Tianen Yao**. I was born and grew up in *Shanghai*.  I then went to *Beijing* for my undergraduate study in *Tsinghua University*. I majored in economics and finance in *Tsinghua* . I am in the Class of 2021 of the London Business School Masters in Financial Analysis program **(MFA2021)** in partnership with Tsinghua University School of Economics and Management. Thus, after finish my first year in LBS, I will come back to *Tsinghua* for the remaining courses and my master thesis in my second year and gain my LBS degree and Tsinghua degree.
+
+This is me. 
+
+
+## My career development
+
+I have been doing several interns in different Chinese security companies, including *GUOTAI JUNAN SECURITIES, HUAAN SECURITIES and HUATAI SECURITIES*. Further details can be found on my [LinkedIn Page](https://www.linkedin.com/in/tianen-yao/). My ambition is to help maintain the momentum of China economy by providing high-quality financing service for Chinese enterprises, so my primary goal for the time being is to find a position in the **investment banking sector** in Asia region after graduation. I’m also open to pursuing opportunities in other sectors and I’m eager to discuss with the LBS career advisors to deeply learn about the working experience in different financial sectors, further clarify my career goals and improve my career skills.
+
+## My expectation of the coming LBS year
+
+I am eager to discover more cutting-edge knowledge in various aspects of finance and prepare myself with solid academic background as well as practical real-world experience before formally entering in to the fiercely competitive financial industry, and the **MFA core courses** can definitely offer me the key financial skills in all financial pillars. I am eager to gain insights of the latest research and trends in the finance industry from the exceptional faculty in LBS.
+
+Great opportunities to have **valuable career exposure** are another key attraction of the MFA. I am looking forward to examining my practical skills in London Business Challenge week and connecting with world-class global financial institutions throughout my MFA experience. I will endeavor to efficiently use the comprehensive career resources offered by the LBS Career Centre to search for job opportunities in various finance sectors.
+
+The **diversified global community** at LBS is another motivation to apply for the MFA. I hope to study and collaborate with the best and the brightest fellows in my graduate studies, learning perspectives from different cultural background and thriving together to discover the cutting-edge finance knowledge and fight for our ideal recruitment. 
+
+>I’m ready to start my journey in LBS.
+
+## My interesting facts
+
+1. I led **Tsinghua Anime Club** with more than 1000 members, organized more than 50 club activities and helped club win top ten Tsinghua student clubs in 3 consecutive years.
+2. As the leader of project group in **Tsinghua Student Club Organization**, I Improved evaluation and budgeting system of Tsinghua Student Club, reviewing evaluation materials, generating feedback and assigning budget to more than 100 clubs. 
+3. I assisted promotion work of Tsinghua admission officers in 6 top Shanghai high schools, providing personal development suggestions for 50+ outstanding students.
+4. I don’t excel at sports but I still love jogging, I competed three times in 10km marathon in **Tsinghua University Campus Marathon**.
+
