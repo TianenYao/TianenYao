@@ -11,15 +11,12 @@ slug: blog6
 title: Hi! My name is Tianen Yao, this is my story.
 ---
 
-```{r load-libraries, include=FALSE}
+```{r load-libraries, warning=FALSE, message=FALSE,echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
-library(mosaic)
 library(ggthemes)
 library(lubridate)
 library(here)
 library(skimr)
-library(janitor)
-library(httr)
 library(readxl)
 library(vroom)
 ```
@@ -30,7 +27,7 @@ Nice to meet you! My name is **Tianen Yao**. I was born and grew up in *Shanghai
 
 
 ```{r covid_challenge, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("static/img", "Yao.jpg"), error = FALSE)
+knitr::include_graphics(here::here("img", "Yao.jpg"), error = FALSE)
 ```
 
 ## My career development
