@@ -11,13 +11,27 @@ slug: blog6
 title: Hi! My name is Tianen Yao, this is my story.
 ---
 
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+```
 
 # The personal biography of **Tianen Yao**
 
 Nice to meet you! My name is **Tianen Yao**. I was born and grew up in *Shanghai*.  I then went to *Beijing* for my undergraduate study in *Tsinghua University*. I majored in economics and finance in *Tsinghua* . I am in the Class of 2021 of the London Business School Masters in Financial Analysis program **(MFA2021)** in partnership with Tsinghua University School of Economics and Management. Thus, after finish my first year in LBS, I will come back to *Tsinghua* for the remaining courses and my master thesis in my second year and gain my LBS degree and Tsinghua degree.
 
-This is me. 
 
+```{r covid_challenge, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here::here("static/img", "Yao.jpg"), error = FALSE)
+```
 
 ## My career development
 
