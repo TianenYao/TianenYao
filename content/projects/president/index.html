@@ -1,0 +1,77 @@
+---
+title: "2016 California Contributors plots"
+author: "Tianen Yao"
+date: "2020-10-18"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+
+
+<p>2016 California Contributors plots</p>
+<p>We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
+Also, we would like to create the same plot for the top 10 candidates.</p>
+<p>To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.</p>
+<pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
+zip_code_database &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
+zip_code_database_short &lt;- zip_code_database[,c(1,3)]
+#Left Join
+CA_contributors_2016_with_St &lt;-merge(x=CA_contributors_2016,y=zip_code_database_short,by=&quot;zip&quot;,all.x=TRUE)
+#reorder with the primary_city based on raised_money
+CA_contributors_2016_grouped &lt;- CA_contributors_2016_with_St %&gt;% 
+  group_by(cand_nm, primary_city) %&gt;%
+  filter(cand_nm %in% c(&quot;Clinton, Hillary Rodham&quot;,&quot;Trump, Donald J.&quot;)) %&gt;% 
+  summarise(raised_money = sum(contb_receipt_amt)) %&gt;% 
+  arrange(desc(raised_money)) %&gt;% 
+  top_n(10) %&gt;% 
+  mutate(primary_city = reorder_within(primary_city, raised_money,cand_nm))
+#make the plot for the two candidates
+CA_contributors_2016_grouped %&gt;% 
+  ggplot(aes(primary_city,raised_money,fill = cand_nm)) +
+  geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = &quot;free&quot;, shrink=TRUE) +
+    coord_flip() +
+  scale_x_reordered() +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(y = &quot;Amount raised&quot;,
+         x = NULL,
+         title = &quot;Where did the two candidates raise most money?&quot;) +
+   theme(plot.title = element_text(size=20))</code></pre>
+<p><img src="/projects/president/index_files/figure-html/load_CA_data-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>         axis.title.x = element_text(size=18, face=&quot;bold&quot;, margin=margin(20,0,0,0))</code></pre>
+<pre class="r"><code>top_ten_candidates &lt;- CA_contributors_2016_with_St %&gt;%  
+  group_by(cand_nm) %&gt;% 
+  summarise(total_contribution=sum(contb_receipt_amt)) %&gt;% 
+  arrange(desc(total_contribution)) %&gt;% top_n(10) %&gt;% pull(1)
+
+CA_top_ten_contributors_2016_grouped &lt;- CA_contributors_2016_with_St %&gt;% 
+  group_by(cand_nm, primary_city) %&gt;%
+  filter(cand_nm %in% top_ten_candidates) %&gt;% 
+  summarise(raised_money = sum(contb_receipt_amt)) %&gt;% 
+  arrange(desc(raised_money)) %&gt;% 
+  top_n(10) %&gt;% 
+  mutate(primary_city = reorder_within(primary_city, raised_money,cand_nm))
+
+CA_top_ten_contributors_2016_grouped$cand_nm &lt;-factor(CA_top_ten_contributors_2016_grouped$cand_nm,levels=top_ten_candidates)
+
+ggplot(CA_top_ten_contributors_2016_grouped,aes(primary_city,raised_money,fill = cand_nm)) +
+  geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = &quot;free&quot;,shrink=TRUE) +
+    coord_flip() +
+  scale_x_reordered() +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(y = &quot;Amount raised&quot;,
+         x = NULL,
+         title = &quot;Where did top 10 candidates raise most money?&quot;
+         ) + theme(axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 12),
+        plot.title = element_text(size=40),
+        strip.text.x = element_text(size = 12)
+        )</code></pre>
+<p><img src="/projects/president/index_files/figure-html/top_ten_candidates-1.png" width="1440" style="display: block; margin: auto;" /></p>

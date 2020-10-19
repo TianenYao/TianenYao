@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2016 California Contributors plots</title>
+      <link>/projects/president/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/president/</guid>
+      <description>2016 California Contributors plots
+We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.Also, we would like to create the same plot for the top 10 candidates.
+To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.
+CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code_database &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.</description>
+    </item>
+    
+    <item>
       <title>Yield Curve Inversion brief introduction</title>
       <link>/projects/reverse/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>

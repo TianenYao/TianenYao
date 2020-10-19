@@ -98,10 +98,10 @@ disqusShortname = ""
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "2016 California Contributors plots"
+      subtitle = "Where did top 10 candidates raise most money?"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "projects/president"
 
     [[params.tiles.showcase]]
       title = "U.S. Yield Curve Inversion"

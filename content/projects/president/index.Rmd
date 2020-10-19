@@ -1,0 +1,123 @@
+---
+title: "2016 California Contributors plots"
+author: "Tianen Yao"
+date: "2020-10-18"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
+library(ggrepel)
+library(tidytext)
+```
+
+
+
+2016 California Contributors plots
+
+We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
+Also, we would like to create the same plot for the top 10 candidates.
+
+
+To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.
+
+
+```{r load_CA_data, warnings= FALSE, message=FALSE}
+
+CA_contributors_2016 <- vroom::vroom(here::here("data","CA_contributors_2016.csv"))
+zip_code_database <- vroom::vroom(here::here("data","zip_code_database.csv"))
+zip_code_database_short <- zip_code_database[,c(1,3)]
+#Left Join
+CA_contributors_2016_with_St <-merge(x=CA_contributors_2016,y=zip_code_database_short,by="zip",all.x=TRUE)
+#reorder with the primary_city based on raised_money
+CA_contributors_2016_grouped <- CA_contributors_2016_with_St %>% 
+  group_by(cand_nm, primary_city) %>%
+  filter(cand_nm %in% c("Clinton, Hillary Rodham","Trump, Donald J.")) %>% 
+  summarise(raised_money = sum(contb_receipt_amt)) %>% 
+  arrange(desc(raised_money)) %>% 
+  top_n(10) %>% 
+  mutate(primary_city = reorder_within(primary_city, raised_money,cand_nm))
+#make the plot for the two candidates
+CA_contributors_2016_grouped %>% 
+  ggplot(aes(primary_city,raised_money,fill = cand_nm)) +
+  geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = "free", shrink=TRUE) +
+    coord_flip() +
+  scale_x_reordered() +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(y = "Amount raised",
+         x = NULL,
+         title = "Where did the two candidates raise most money?") +
+   theme(plot.title = element_text(size=20))
+         axis.title.x = element_text(size=18, face="bold", margin=margin(20,0,0,0))
+```
+
+```{r top_ten_candidates,warnings= FALSE,message = FALSE, fig.width=15,fig.height=15}
+top_ten_candidates <- CA_contributors_2016_with_St %>%  
+  group_by(cand_nm) %>% 
+  summarise(total_contribution=sum(contb_receipt_amt)) %>% 
+  arrange(desc(total_contribution)) %>% top_n(10) %>% pull(1)
+
+CA_top_ten_contributors_2016_grouped <- CA_contributors_2016_with_St %>% 
+  group_by(cand_nm, primary_city) %>%
+  filter(cand_nm %in% top_ten_candidates) %>% 
+  summarise(raised_money = sum(contb_receipt_amt)) %>% 
+  arrange(desc(raised_money)) %>% 
+  top_n(10) %>% 
+  mutate(primary_city = reorder_within(primary_city, raised_money,cand_nm))
+
+CA_top_ten_contributors_2016_grouped$cand_nm <-factor(CA_top_ten_contributors_2016_grouped$cand_nm,levels=top_ten_candidates)
+
+ggplot(CA_top_ten_contributors_2016_grouped,aes(primary_city,raised_money,fill = cand_nm)) +
+  geom_col(show.legend = FALSE) +
+    facet_wrap(~cand_nm, scales = "free",shrink=TRUE) +
+    coord_flip() +
+  scale_x_reordered() +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(y = "Amount raised",
+         x = NULL,
+         title = "Where did top 10 candidates raise most money?"
+         ) + theme(axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 12),
+        plot.title = element_text(size=40),
+        strip.text.x = element_text(size = 12)
+        )
+```
+
