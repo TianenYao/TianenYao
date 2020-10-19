@@ -52,12 +52,12 @@ disqusShortname = ""
       url = "blogs"
 
     [[params.navigation.links]]
-      name = "Generic Blog"
+      name = "Personal Introduction"
       url = "blogs/blog6"
 
     [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+      name = "CV"
+      url = "projects/TianenYaoCV.pdf"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
