@@ -59,7 +59,7 @@ Also, we would like to create the same plot for the top 10 candidates.
 To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.
 
 
-```{r load_CA_data, warnings= FALSE, message=FALSE}
+```{r load_CA_data, warnings= FALSE, message=FALSE,fig.width=12,fig.height=12}
 
 CA_contributors_2016 <- vroom::vroom(here::here("data","CA_contributors_2016.csv"))
 zip_code_database <- vroom::vroom(here::here("data","zip_code_database.csv"))
@@ -88,6 +88,11 @@ CA_contributors_2016_grouped %>%
    theme(plot.title = element_text(size=20))
          axis.title.x = element_text(size=18, face="bold", margin=margin(20,0,0,0))
 ```
+
+
+
+
+
 
 ```{r top_ten_candidates,warnings= FALSE,message = FALSE, fig.width=15,fig.height=15}
 top_ten_candidates <- CA_contributors_2016_with_St %>%  
