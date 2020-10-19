@@ -104,9 +104,9 @@ disqusShortname = ""
       url = "blogs/tempus"
 
     [[params.tiles.showcase]]
-      title = "Reverse"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
+      title = "U.S. Yield Curve Inversion"
+      subtitle = "When has it happened and what does it imply?"
+      image = "yield.png"
       url = "projects/reverse"
 
     [[params.tiles.showcase]]
