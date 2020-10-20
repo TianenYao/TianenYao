@@ -94,10 +94,10 @@ disqusShortname = ""
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]
-      title = "2016 California Contributors plots"
-      subtitle = "Where did top 10 candidates raise most money?"
-      image = "pic02.jpg"
-      url = "projects/president"
+      title = "Shanghai Airbnb data analysis"
+      subtitle = "What's the total cost for two people to stay 4 nights in an Airbnb in Shanghai?"
+      image = "shanghai.jpg"
+      url = "projects/shanghai"
 
     [[params.tiles.showcase]]
       title = "U.S. Yield Curve Inversion"
@@ -108,8 +108,14 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Excess rentals in London bike sharing"
       subtitle = "Differences between Expected and actual level of bike rentals in London"
-      image = "pic05.jpg"
+      image = "bikes.jpg"
       url = "blogs/blog5"
+
+    [[params.tiles.showcase]]
+      title = "2016 California Contributors plots"
+      subtitle = "Where did top 10 candidates raise most money?"
+      image = "pic02.jpg"
+      url = "projects/president"
 
     [[params.tiles.showcase]]
       title = "Shanghai Airbnb data analysis"
