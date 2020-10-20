@@ -14,9 +14,9 @@ output:
 
 
 
-<p>2016 California Contributors plots</p>
-<p>We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
-Also, we would like to create the same plot for the top 10 candidates.</p>
+<div id="california-contributors-plots" class="section level1">
+<h1>2016 California Contributors plots</h1>
+<p>We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
 <p>To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.</p>
 <pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
 zip_code_database &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
@@ -45,6 +45,10 @@ CA_contributors_2016_grouped %&gt;%
    theme(plot.title = element_text(size=20))</code></pre>
 <p><img src="/projects/president/index_files/figure-html/load_CA_data-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>         axis.title.x = element_text(size=18, face=&quot;bold&quot;, margin=margin(20,0,0,0))</code></pre>
+<p>Clearly Clinton raised much more money in California than Trump! We are not surprised at all as we all know California is a deep blue state.</p>
+<div id="contributor-plots-for-top-ten-candidates" class="section level2">
+<h2>Contributor plots for top ten candidates</h2>
+<p>Also, we would like to create the same plot for the top 10 candidates. Guess what’s the ranking of Trump in the second plot?</p>
 <pre class="r"><code>top_ten_candidates &lt;- CA_contributors_2016_with_St %&gt;%  
   group_by(cand_nm) %&gt;% 
   summarise(total_contribution=sum(contb_receipt_amt)) %&gt;% 
@@ -75,3 +79,6 @@ ggplot(CA_top_ten_contributors_2016_grouped,aes(primary_city,raised_money,fill =
         strip.text.x = element_text(size = 12)
         )</code></pre>
 <p><img src="/projects/president/index_files/figure-html/top_ten_candidates-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>Trump was the third in top 10 candidates while the second was Bernie Sanders! Again, we are not surprised at all as we all know California is a deep blue state and Bernie was also a strong candidate in the 2016 election.</p>
+</div>
+</div>

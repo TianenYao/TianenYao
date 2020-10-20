@@ -13,10 +13,9 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/president/</guid>
-      <description>2016 California Contributors plots
-We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.Also, we would like to create the same plot for the top 10 candidates.
+      <description>2016 California Contributors plotsWe would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
 To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.
-CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code_database &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.</description>
+CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code_database &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.csv&amp;quot;))zip_code_database_short &amp;lt;- zip_code_database[,c(1,3)]#Left JoinCA_contributors_2016_with_St &amp;lt;-merge(x=CA_contributors_2016,y=zip_code_database_short,by=&amp;quot;zip&amp;quot;,all.x=TRUE)#reorder with the primary_city based on raised_moneyCA_contributors_2016_grouped &amp;lt;- CA_contributors_2016_with_St %&amp;gt;% group_by(cand_nm, primary_city) %&amp;gt;%filter(cand_nm %in% c(&amp;quot;Clinton, Hillary Rodham&amp;quot;,&amp;quot;Trump, Donald J.</description>
     </item>
     
     <item>

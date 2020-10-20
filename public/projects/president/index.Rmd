@@ -50,11 +50,9 @@ library(tidytext)
 
 
 
-2016 California Contributors plots
+# 2016 California Contributors plots
 
 We would like make a plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
-Also, we would like to create the same plot for the top 10 candidates.
-
 
 To get this plot, we shall join two dataframes; one contains all contributions, and another can translate zipcodes to cities.
 
@@ -90,9 +88,11 @@ CA_contributors_2016_grouped %>%
 ```
 
 
+Clearly Clinton raised much more money in California than Trump! We are not surprised at all as we all know California is a deep blue state.
 
+## Contributor plots for top ten candidates
 
-
+Also, we would like to create the same plot for the top 10 candidates. Guess what's the ranking of Trump in the second plot?
 
 ```{r top_ten_candidates,warnings= FALSE,message = FALSE, fig.width=15,fig.height=15}
 top_ten_candidates <- CA_contributors_2016_with_St %>%  
@@ -126,3 +126,4 @@ ggplot(CA_top_ten_contributors_2016_grouped,aes(primary_city,raised_money,fill =
         )
 ```
 
+Trump was the third in top 10 candidates while the second was Bernie Sanders! Again, we are not surprised at all as we all know California is a deep blue state and Bernie was also a strong candidate in the 2016 election.
