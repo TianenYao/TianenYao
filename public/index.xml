@@ -20,6 +20,16 @@ CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,
     </item>
     
     <item>
+      <title>AirBnB analytics in Shanghai</title>
+      <link>/projects/shanghai/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/shanghai/</guid>
+      <description>In this page, I am going to analyze Data about Airbnb listings from my home city – Shanghai, I will fit a model to predict the total cost for two people staying 4 nights in an Airbnb in Shanghai. Let’s get started by reading the Airbnb data from Shanghai first!
+listings &amp;lt;- vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;shanghai.tsv.gz&amp;quot;))Exploratory Data Analysis (EDA)Let’s first take a look at the raw data</description>
+    </item>
+    
+    <item>
       <title>Yield Curve Inversion brief introduction</title>
       <link>/projects/reverse/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
