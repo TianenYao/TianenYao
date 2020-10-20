@@ -117,12 +117,6 @@ disqusShortname = ""
       image = "president.png"
       url = "projects/president"
 
-    [[params.tiles.showcase]]
-      title = "Shanghai Airbnb data analysis"
-      subtitle = "What's the total cost for two people to stay 4 nights in an Airbnb in Shanghai?"
-      image = "pic04.jpg"
-      url = "projects/shanghai"
-
 
     # You can make more showcases by copy and pasting the code above
 
@@ -210,7 +204,7 @@ disqusShortname = ""
       url= "https://www.linkedin.com/in/tianen-yao/"
       label = "LinkedIn"
 
-    [[params.footer.quicklinks]]
-      text = "Design: "
-      url= "https://www.html5up.net"
-      alt = "HTML5 UP"
+    #[[params.footer.quicklinks]]
+    # text = "Design: "
+    # url= "https://www.html5up.net"
+    # alt = "HTML5 UP"
