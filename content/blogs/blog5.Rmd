@@ -24,9 +24,11 @@ library(readxl)
 library(vroom)
 ```
 
-# Challenge 2: Excess rentals in TfL bike sharing
+# Excess rentals in London bike sharing
 
-Recall the TfL data on how many bikes were hired every single day. We can get the latest data by running the following
+It's cool to hire bikes for cycling in London! Would you like to know how much bikes have been hired by month and year? Let’s take a look!
+
+We can get the latest data by running the following
 
 ```{r get_tfl_data, cache=TRUE,warnings= FALSE, message=FALSE}
 url <- "https://data.london.gov.uk/download/number-bicycle-hires/ac29363e-e0cb-47cc-a97a-e216d900a6b0/tfl-daily-cycle-hires.xlsx"
@@ -48,7 +50,7 @@ bike <- bike0 %>%
           week = isoweek(day))
 ```
 
-
+## Bikes hired by month and year
 
 We can easily create a facet grid that plots bikes hired by month and year.
 
@@ -69,18 +71,17 @@ ggplot(bike15_20, aes(x=bikes_hired))+
 ```
 
 
-Look at May and Jun and compare 2020 with the previous years. What's happening?
+> Look at May and Jun and compare 2020 with the previous years. What's happening?
 
-One sentence-answer
-
-Bike Rentals in May and Jun in 2020 dropped significantly from previous years because of the lockdown caused by the covid-pandemic.
+Yes! Bike Rentals in May and Jun in 2020 dropped significantly from previous years because of the lockdown caused by the covid-pandemic.
 
 
-The second one looks at percentage changes from the expected level of weekly rentals. The two grey shaded rectangles correspond to the second (weeks 14-26) and fourth (weeks 40-52) quarters.
+## Differences between Expected and actual level of bike rentals
 
-For both of these graphs, you have to calculate the expected number of rentals per week or month between 2015-2019 and then, see how each week/month of 2020 compares to the expected rentals. Think of the calculation `excess_rentals = actual_rentals - expected_rentals`. 
+Next, let’s calculate the expected number of rentals per month and per week between 2015-2019 by calculating the median number of rentals between 2015-2019. Then we can see how the actual rentals in each week/month of 2020 compares to the expected rentals. Remember, `excess_rentals = actual_rentals - expected_rentals`.
 
-Should you use the mean or the median to calculate your expected rentals? Why?
+
+Our first plot looks at absolute changes from the expected level of monthly rentals.The blue line is the expected level of rentals, green areas are the positive excess rentals and pinks areas are the negative excess rentals.
 
 ```{r monthly_change, warnings= FALSE, message=FALSE,fig.width=12}
 bike15_19 <- bike %>% filter(year>=2015&year<=2019) %>% mutate(month0 = month(day))
@@ -108,6 +109,9 @@ ggplot(bike_month_excess,aes(x=month0))+
   NULL
 
 ```
+
+
+The second plot looks at percentage changes from the expected level of weekly rentals. Again, green areas are the positive excess rentals by percentage and pinks areas are the negative excess rentals by percentage.The two grey shaded rectangles correspond to the second (weeks 14-26) and fourth (weeks 40-52) quarters.
 
 ```{r weekly_change, warnings= FALSE, message=FALSE,fig.width=12}
 #Calculate the weekly average between 2015-2019 using median 

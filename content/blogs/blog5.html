@@ -13,9 +13,10 @@ title: Excess rentals in London bike sharing
 
 
 
-<div id="challenge-2-excess-rentals-in-tfl-bike-sharing" class="section level1">
-<h1>Challenge 2: Excess rentals in TfL bike sharing</h1>
-<p>Recall the TfL data on how many bikes were hired every single day. We can get the latest data by running the following</p>
+<div id="excess-rentals-in-london-bike-sharing" class="section level1">
+<h1>Excess rentals in London bike sharing</h1>
+<p>It’s cool to hire bikes for cycling in London! Would you like to know how much bikes have been hired by month and year? Let’s take a look!</p>
+<p>We can get the latest data by running the following</p>
 <pre class="r"><code>url &lt;- &quot;https://data.london.gov.uk/download/number-bicycle-hires/ac29363e-e0cb-47cc-a97a-e216d900a6b0/tfl-daily-cycle-hires.xlsx&quot;
 
 # Download TFL data to temporary file
@@ -40,6 +41,8 @@ bike &lt;- bike0 %&gt;%
           week = isoweek(day))</code></pre>
 <pre><code>## Warning in FUN(X[[i]], ...): strings not representable in native encoding will
 ## be translated to UTF-8</code></pre>
+<div id="bikes-hired-by-month-and-year" class="section level2">
+<h2>Bikes hired by month and year</h2>
 <p>We can easily create a facet grid that plots bikes hired by month and year.</p>
 <pre class="r"><code>bike15_20 &lt;- bike %&gt;% filter(year&gt;=2015) %&gt;% mutate(month0 = month(day))
 
@@ -55,12 +58,15 @@ ggplot(bike15_20, aes(x=bikes_hired))+
   theme_bw()+
   NULL</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/Bikes%20hired%20per%20month-1.png" width="1440" /></p>
+<blockquote>
 <p>Look at May and Jun and compare 2020 with the previous years. What’s happening?</p>
-<p>One sentence-answer</p>
-<p>Bike Rentals in May and Jun in 2020 dropped significantly from previous years because of the lockdown caused by the covid-pandemic.</p>
-<p>The second one looks at percentage changes from the expected level of weekly rentals. The two grey shaded rectangles correspond to the second (weeks 14-26) and fourth (weeks 40-52) quarters.</p>
-<p>For both of these graphs, you have to calculate the expected number of rentals per week or month between 2015-2019 and then, see how each week/month of 2020 compares to the expected rentals. Think of the calculation <code>excess_rentals = actual_rentals - expected_rentals</code>.</p>
-<p>Should you use the mean or the median to calculate your expected rentals? Why?</p>
+</blockquote>
+<p>Yes! Bike Rentals in May and Jun in 2020 dropped significantly from previous years because of the lockdown caused by the covid-pandemic.</p>
+</div>
+<div id="differences-between-expected-and-actual-level-of-bike-rentals" class="section level2">
+<h2>Differences between Expected and actual level of bike rentals</h2>
+<p>Next, let’s calculate the expected number of rentals per month and per week between 2015-2019 by calculating the median number of rentals between 2015-2019. Then we can see how the actual rentals in each week/month of 2020 compares to the expected rentals. Remember, <code>excess_rentals = actual_rentals - expected_rentals</code>.</p>
+<p>Our first plot looks at absolute changes from the expected level of monthly rentals.The blue line is the expected level of rentals, green areas are the positive excess rentals and pinks areas are the negative excess rentals.</p>
 <pre class="r"><code>bike15_19 &lt;- bike %&gt;% filter(year&gt;=2015&amp;year&lt;=2019) %&gt;% mutate(month0 = month(day))
 #Calculate the monthly average between 2015-2019 using median 
 expected_monthly_rentals &lt;- bike15_19 %&gt;% group_by(month0) %&gt;% summarise(median_ex=median(bikes_hired))
@@ -85,6 +91,7 @@ ggplot(bike_month_excess,aes(x=month0))+
   theme(axis.text.x = element_text(size = 8, margin = margin(0,15,0,0)))+
   NULL</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/monthly_change-1.png" width="1152" /></p>
+<p>The second plot looks at percentage changes from the expected level of weekly rentals. Again, green areas are the positive excess rentals by percentage and pinks areas are the negative excess rentals by percentage.The two grey shaded rectangles correspond to the second (weeks 14-26) and fourth (weeks 40-52) quarters.</p>
 <pre class="r"><code>#Calculate the weekly average between 2015-2019 using median 
 expected_weekly_rentals &lt;- bike15_19 %&gt;% group_by(week) %&gt;% summarise(median_ex=median(bikes_hired))
 #Calculate the acutual weekly average between 2015-2020 using median 
@@ -117,4 +124,5 @@ ggplot(bike_week_excess,aes(x=week))+
   theme(axis.text.x = element_text(size = 12, margin = margin(0,15,0,0)))+
   NULL</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/weekly_change-1.png" width="1152" /></p>
+</div>
 </div>
